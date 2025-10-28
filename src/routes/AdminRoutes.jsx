@@ -1,7 +1,7 @@
 import AdminLayout from '../layouts/AdminLayout'
 import DashboardPage from '../pages/admin/DashboardPage'
 
-export const adminRoutes = [
+export const AdminRoutes = [
   {
     path: '/admin',
     element: <AdminLayout />,

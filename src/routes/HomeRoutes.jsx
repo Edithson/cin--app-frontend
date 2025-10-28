@@ -1,7 +1,7 @@
 import HomeLayout from '../layouts/HomeLayout'
 import HomePage from '../pages/home/HomePage'
 
-export const homeRoutes = [
+export const HomeRoutes = [
   {
     path: '/',
     element: <HomeLayout />,
