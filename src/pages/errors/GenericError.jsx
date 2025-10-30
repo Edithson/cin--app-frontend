@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function GenericError() {
+export default function GenericError({ message }) {
   const handleRefresh = () => {
     window.location.reload()
   }
@@ -51,6 +51,7 @@ export default function GenericError() {
               </p>
               <div className="bg-gray-900 rounded px-4 py-2 mt-3 text-xs text-gray-500 font-mono">
                 REF: CIN-ERR-{new Date().toISOString().split('T')[0].replace(/-/g, '')}-XYZABC
+                {message}
               </div>
             </div>
 

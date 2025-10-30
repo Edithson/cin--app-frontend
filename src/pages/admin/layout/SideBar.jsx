@@ -1,4 +1,6 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom'
+import Lien from '../../../components/layout/admin/Lien'
 
 export default function SideBar() {
   return (
@@ -8,42 +10,13 @@ export default function SideBar() {
         </div>
         
         <nav className="flex-1 overflow-y-auto py-4">
-            <a href="#" className="flex items-center px-6 py-3 text-gray-100 bg-red-600 border-l-4 border-red-500">
-                <span className="mr-3">📊</span>
-                <span className="font-medium">Dashboard</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">🎬</span>
-                <span>Films</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">🎭</span>
-                <span>Séances</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">🏛️</span>
-                <span>Salles</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">🎫</span>
-                <span>Réservations</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">👥</span>
-                <span>Utilisateurs</span>
-            </a>
-            {/* <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">⭐</span>
-                <span>Notes & Avis</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">📧</span>
-                <span>Emails</span>
-            </a>
-            <a href="#" className="flex items-center px-6 py-3 text-gray-400 hover:bg-gray-800 hover:text-gray-100 transition">
-                <span className="mr-3">⚙️</span>
-                <span>Paramètres</span>
-            </a> */}
+            <Lien to={"/admin"} icon={"📊"} label={"Dashboard"} />
+            <Lien to={"/admin/films"} icon={"🎬"} label={"Films"} />
+            <Lien to={"/admin/seances"} icon={"🎭"} label={"Séances"} />
+            <Lien to={"/admin/salles"} icon={"🏛️"} label={"Salles"} />
+            <Lien to={"/admin/reservations"} icon={"🎫"} label={"Réservations"} />
+            <Lien to={"/admin/categorie"} icon={"🗃️"} label={"Catégorie"} />
+            <Lien to={"/admin/utilisateurs"} icon={"👥"} label={"Utilisateurs"} />
         </nav>
         
         <div className="p-4 border-t border-gray-800">

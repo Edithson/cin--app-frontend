@@ -1,6 +1,13 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './static/css/index.css'
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  QueryClient,
+  QueryClientProvider,
+} from '@tanstack/react-query'
 
 import HomeLayout from './layouts/HomeLayout.jsx'
 import AdminLayout from './layouts/AdminLayout.jsx'
@@ -10,6 +17,8 @@ import { createBrowserRouter, RouterProvider } from "react-router"
 import Home from './pages/home/Home.jsx'
 
 import Dashboard from './pages/admin/Dashboard.jsx'
+import ListSalle from './pages/admin/salle/ListSalle.jsx'
+import CreateSalle from './pages/admin/salle/CreateSalle.jsx'
 
 import Authentification from './pages/auth/Authentification.jsx'
 
@@ -22,6 +31,16 @@ function ErrorRedirect() {
   window.location.href = '/error'
   return null
 }
+
+// Créez une instance de QueryClient
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      // Temps pendant lequel les données sont considérées comme "fraîches" (non périmées)
+      staleTime: 1000 * 60 * 1, // 1 minute
+    },
+  },
+});
 
 const router = createBrowserRouter([{
   errorElement: <ErrorRedirect />,
@@ -44,6 +63,14 @@ const router = createBrowserRouter([{
           index: true,
           element: <Dashboard />,
         },
+        {
+          path: "/admin/salles",
+          element: <ListSalle />,
+        },
+        {
+          path: "/admin/salles/create",
+          element: <CreateSalle />,
+        }
       ],
     },
     {
@@ -70,7 +97,9 @@ const router = createBrowserRouter([{
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ErrorBoundary>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </ErrorBoundary>
   </StrictMode>,
 )
