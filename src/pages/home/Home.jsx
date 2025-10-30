@@ -6,7 +6,7 @@ import HeroSection from './sections/HeroSection.jsx'
 
 export default function Home() {
   return (
-    <div>
+    <div className='-mt-4'>
       <HeroSection />
       <FilmsSection />
       <ShortlySection />
